@@ -29,13 +29,15 @@ export default function Products() {
 
       {catalog.map((cat, i) => {
         const Icon = iconMap[cat.icon] || Package;
+        const sectionId = cat.category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
         return (
           <Section
             key={cat.category}
+            id={sectionId}
             tone={i % 2 === 0 ? "paper" : "ink"}
             texture={i % 2 !== 0}
-            className="py-20 md:py-28 border-b border-ink/10"
+            className="py-20 md:py-28 border-b border-ink/10 scroll-mt-28"
           >
             <Container>
               <div className="flex flex-col gap-8">
