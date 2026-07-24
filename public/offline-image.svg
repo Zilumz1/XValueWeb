@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Image unavailable offline</title>
+  <desc id="description">A simple XValue branded placeholder.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07130f"/>
+      <stop offset="1" stop-color="#153e31"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#background)"/>
+  <circle cx="600" cy="340" r="92" fill="none" stroke="#96e8c2" stroke-width="18" opacity=".9"/>
+  <path d="M548 340h104M600 288v104" stroke="#96e8c2" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="500" fill="#f3faf6" font-family="system-ui, sans-serif" font-size="42" text-anchor="middle">Available when you reconnect</text>
+</svg>
