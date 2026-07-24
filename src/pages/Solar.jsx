@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { Sun, BatteryCharging, Zap } from "lucide-react";
 import { Container, Section, Eyebrow } from "../components/ui/Section";
@@ -38,6 +39,8 @@ export default function Solar() {
           aria-label="Aerial view of a large solar panel farm"
         />
         <div className="absolute inset-0 photo-scrim-red" />
+        <div className="absolute -left-12 top-20 h-48 w-48 rounded-full bg-paper/15 blur-[120px]" aria-hidden="true" />
+        <div className="absolute bottom-8 right-0 h-64 w-64 rounded-full bg-red/35 blur-[120px]" aria-hidden="true" />
         <div className="scan-line" aria-hidden="true" />
         <Container className="relative z-10">
           <Eyebrow className="text-red">Green Energy Division</Eyebrow>
@@ -97,8 +100,10 @@ export default function Solar() {
               const Icon = p.category === "Battery" ? BatteryCharging : p.category === "Inverter" ? Zap : Sun;
 
               return (
-                <div
+                <motion.div
                   key={p.id}
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
                   className={`w-[270px] md:w-[320px] shrink-0 overflow-hidden rounded-[1.75rem] border border-ink/10 shadow-[0_18px_45px_rgba(4,13,17,0.08)] transition-transform duration-300 hover:-translate-y-1 ${
                     p.tone === "red" ? "bg-red text-paper" :
                     p.tone === "redDeep" ? "bg-redDeep text-paper" :
@@ -134,15 +139,45 @@ export default function Solar() {
                       <span className="font-mono text-[10px] uppercase tracking-[0.25em] opacity-70">
                         {p.availability}
                       </span>
-                      <button className="rounded-full border border-paper/20 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.25em] transition-colors hover:bg-paper/15">
+                      <Button as={NavLink} to="/quote" variant="outline" size="sm" arrow={false} className="border border-paper/20 bg-transparent px-3 py-2 text-[10px] text-paper hover:bg-paper hover:text-ink">
                         Request price
-                      </button>
+                      </Button>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
+        </div>
+
+        <div className="container-x mt-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5 }}
+            className="rounded-[2rem] border border-ink/10 bg-gradient-to-r from-ink via-red/95 to-redDeep p-8 md:p-10 shadow-[0_24px_70px_rgba(4,13,17,0.16)]"
+          >
+            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl">
+                <Eyebrow className="text-paper/70">Need a full system?</Eyebrow>
+                <h3 className="font-display uppercase text-3xl md:text-4xl mt-4 leading-tight">
+                  Let’s size the right solar package for your site.
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-paper/75">
+                  Share your usage, site details and timeline and we’ll turn it into a practical quote with lead times and options.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Button as={NavLink} to="/quote" variant="paper" size="md">
+                  Start a Quote
+                </Button>
+                <Button as={NavLink} to="/contact" variant="outline" size="md" className="border-paper/35 text-paper hover:bg-paper hover:text-ink">
+                  Contact Sales
+                </Button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </Section>
 

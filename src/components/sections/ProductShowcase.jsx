@@ -36,6 +36,7 @@ export default function ProductShowcase() {
               key={p.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8, scale: 1.01 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className={`group relative w-[260px] md:w-[300px] shrink-0 p-6 flex flex-col justify-between min-h-[280px]

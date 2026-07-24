@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Container, Section, Eyebrow } from "../ui/Section";
+import Button from "../ui/Button";
 
 export default function Newsletter() {
   const [submitted, setSubmitted] = useState(false);
@@ -38,9 +40,14 @@ export default function Newsletter() {
             className="lg:col-span-5"
           >
             {submitted ? (
-              <div className="flex items-center gap-3 font-mono text-sm">
-                <Check size={20} strokeWidth={2.5} />
-                You&apos;re on the list — check your inbox.
+              <div className="flex flex-col gap-4 rounded-[1.5rem] border border-paper/20 bg-ink/20 p-6 backdrop-blur-sm">
+                <div className="flex items-center gap-3 font-mono text-sm">
+                  <Check size={20} strokeWidth={2.5} />
+                  You&apos;re on the list — check your inbox.
+                </div>
+                <Button as={NavLink} to="/quote" variant="paper" size="md" className="w-fit bg-paper text-ink hover:bg-ink hover:text-paper">
+                  Get a Quote
+                </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex items-stretch border-2 border-paper">

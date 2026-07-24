@@ -58,23 +58,19 @@ export default function Footer() {
             <p className="text-sm text-paper/60 mb-4">
               Product drops, partner offers and load-shedding-proof deals.
             </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex items-stretch border border-paper/20 focus-within:border-red transition-colors"
-            >
-              <input
-                type="email"
-                required
-                placeholder="you@company.co.za"
-                className="bg-transparent px-4 py-3 text-sm flex-1 outline-none placeholder:text-paper/30"
-              />
-              <button
-                type="submit"
-                className="px-5 font-mono text-xs uppercase tracking-widest bg-red text-paper hover:bg-paper hover:text-ink transition-colors"
-              >
-                Join
-              </button>
-            </form>
+            <div className="rounded-[1.5rem] border border-paper/15 bg-paper/8 p-5 backdrop-blur-sm">
+              <p className="text-sm text-paper/70 leading-relaxed">
+                Need a quote fast? We’ll help you scope the right solar, tools or interiors package.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Button as={NavLink} to="/quote" variant="red" size="md">
+                  Request a Quote
+                </Button>
+                <Button as={NavLink} to="/contact" variant="outline" size="md" className="border-paper/35 text-paper hover:bg-paper hover:text-ink">
+                  Talk to Sales
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
 

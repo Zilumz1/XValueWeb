@@ -31,8 +31,8 @@ const Button = forwardRef(
     return (
       <Comp
         ref={ref}
-        className={`group inline-flex items-center gap-2 font-mono uppercase tracking-wide font-medium rounded-full
-          transition-all duration-300 ease-out-expo hover:-translate-y-0.5
+        className={`group relative inline-flex items-center justify-center gap-2 font-mono uppercase tracking-[0.2em] font-medium rounded-full
+          transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:scale-[1.01] active:scale-[0.98]
           ${variants[variant]} ${sizes[size]} ${className}`}
         {...props}
       >

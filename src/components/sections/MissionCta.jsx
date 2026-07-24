@@ -15,9 +15,14 @@ export default function MissionCta() {
             </p>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
-            <Button as={NavLink} to="/quote" variant="ink" size="lg">
-              Get a Custom Quote
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button as={NavLink} to="/quote" variant="ink" size="lg">
+                Get a Custom Quote
+              </Button>
+              <Button as={NavLink} to="/contact" variant="outline" size="lg" className="border-paper/30 text-paper hover:bg-paper hover:text-ink">
+                Talk to the Team
+              </Button>
+            </div>
           </div>
         </div>
       </Container>
