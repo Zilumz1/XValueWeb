@@ -210,7 +210,7 @@ export const catalog = [
     caption: "Cordless and corded solutions with batteries and chargers that keep crews moving.",
     priceLabel: "From R750",
     ctaLabel: "View tools",
-    ctaHref: "#power-tools",
+    ctaHref: "/tools",
     image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=1400&q=80",
     groups: [
       { name: "Cordless Tools", items: ["Cordless Brushless Angle Grinder", "Cordless Brushless Driver / Hammer Drill"] },

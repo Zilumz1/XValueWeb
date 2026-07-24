@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import Solar from "./pages/Solar";
+import Tools from "./pages/Tools";
 import Brands from "./pages/Brands";
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="products" element={<Products />} />
           <Route path="solar" element={<Solar />} />
+          <Route path="tools" element={<Tools />} />
           <Route path="brands" element={<Brands />} />
           <Route path="contact" element={<Contact />} />
           <Route path="quote" element={<Quote />} />
