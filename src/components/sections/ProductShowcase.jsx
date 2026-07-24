@@ -1,21 +1,29 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { Zap } from "lucide-react";
+import { ArrowUpRight, BatteryCharging, SunMedium, Zap } from "lucide-react";
 import { Container, Section, Eyebrow } from "../ui/Section";
 import Button from "../ui/Button";
-import { featuredProducts } from "../../lib/siteData";
 
-const toneClasses = {
-  red: "bg-red text-paper",
-  ink: "bg-ink text-paper",
-  redDeep: "bg-redDeep text-paper",
-};
-
-const accentClasses = {
-  red: "from-red/90 to-red-bright/80",
-  ink: "from-ink/85 to-ink/70",
-  redDeep: "from-redDeep/95 to-red/70",
-};
+const highlights = [
+  {
+    title: "Solar that keeps projects moving",
+    copy: "PV, storage and inverter systems sized for homes, sites and utility rollouts.",
+    icon: SunMedium,
+    accent: "from-red/90 to-red-bright/70",
+  },
+  {
+    title: "Supply chain without the drag",
+    copy: "One account for lighting, tools, interiors and energy hardware across South Africa.",
+    icon: BatteryCharging,
+    accent: "from-ink/90 to-red/70",
+  },
+  {
+    title: "Fast answers, real execution",
+    copy: "Quote support, delivery coordination and installation partnership through Raka Energy.",
+    icon: Zap,
+    accent: "from-redDeep/95 to-red/70",
+  },
+];
 
 export default function ProductShowcase() {
   return (
@@ -23,89 +31,81 @@ export default function ProductShowcase() {
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <Eyebrow>In Stock</Eyebrow>
+            <Eyebrow>What powers us</Eyebrow>
             <h2 className="font-display uppercase text-4xl md:text-6xl mt-4 leading-[0.95]">
-              Featured hardware
+              Built for momentum
             </h2>
           </div>
           <Button as={NavLink} to="/products" variant="outline" size="sm">
-            View All Products
+            Explore the catalogue
           </Button>
         </div>
       </Container>
 
-      {/* Horizontal scroll rail — bleeds to the edge intentionally */}
-      <div className="overflow-x-auto pb-4 [scrollbar-width:thin]">
-        <div className="container-x flex gap-5 w-max">
-          {featuredProducts.map((p, i) => (
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -8, scale: 1.01 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className={`group relative w-[260px] md:w-[300px] shrink-0 overflow-hidden rounded-[2rem] border border-ink/10 shadow-[0_20px_45px_rgba(4,13,17,0.10)] transition-transform duration-300 ease-out-expo hover:-translate-y-1 ${toneClasses[p.tone]}`}
-            >
-              <div className="relative h-[220px] w-full overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-105"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t ${accentClasses[p.tone]}`} />
-                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-paper/20 bg-paper/15 backdrop-blur-sm">
-                  <Zap size={18} strokeWidth={2} />
-                </div>
-                <span className="absolute right-4 top-4 rounded-full border border-paper/25 bg-black/20 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.25em] backdrop-blur-sm">
-                  {p.badge}
-                </span>
-              </div>
-
-              <div className="flex flex-col justify-between p-6 min-h-[180px]">
-                <div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.3em] opacity-70">
-                    {p.category}
-                  </span>
-                  <h3 className="font-display-x font-bold text-lg leading-snug mt-3 mb-2">
-                    {p.name}
-                  </h3>
-                  <p className="font-mono text-xs opacity-75">{p.spec}</p>
-                </div>
-
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] opacity-70">
-                    {p.availability}
-                  </span>
-                  <span className="rounded-full border border-paper/20 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.25em]">
-                    {p.price}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-
-          {/* Trailing CTA card */}
-          <NavLink
-            to="/products"
-            className="group relative w-[260px] md:w-[300px] shrink-0 overflow-hidden rounded-[2rem] border border-ink/15 bg-paper p-6 min-h-[400px] flex flex-col items-start justify-end transition-all duration-300 hover:border-ink hover:-translate-y-1"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(228,3,46,0.12),_transparent_58%)]" />
-            <div className="absolute right-6 top-6 flex h-14 w-14 items-center justify-center rounded-full border border-ink/10 bg-paper shadow-sm">
-              <Zap size={20} strokeWidth={2} className="text-red" />
+      <div className="container-x grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55 }}
+          className="relative overflow-hidden rounded-[2.2rem] border border-ink/10 bg-ink p-8 md:p-10 min-h-[420px] shadow-[0_24px_70px_rgba(4,13,17,0.16)]"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(228,3,46,0.25),_transparent_44%),linear-gradient(135deg,_rgba(255,255,255,0.06),_transparent_55%)]" />
+          <div className="absolute -right-10 bottom-0 h-44 w-44 rounded-full bg-red/30 blur-[100px]" />
+          <div className="relative z-10 flex h-full flex-col justify-between">
+            <div>
+              <Eyebrow className="text-paper/70">XValue at a glance</Eyebrow>
+              <h3 className="font-display uppercase text-3xl md:text-4xl mt-5 leading-[0.95] text-paper">
+                One network for ambitious builds.
+              </h3>
+              <p className="mt-5 max-w-xl text-sm md:text-base leading-relaxed text-paper/75">
+                From rooftop solar and commercial storage to power tools and interiors, we connect the right hardware with the right delivery plan.
+              </p>
             </div>
-            <div className="relative z-10">
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate">
-                Dive deeper
-              </span>
-              <span className="mt-4 block font-display uppercase text-xl leading-tight text-ink">
-                See the full catalogue
-              </span>
-              <span className="mt-3 inline-flex font-mono text-xs uppercase tracking-widest text-slate transition-colors group-hover:text-ink">
-                Browse products →
-              </span>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Button as={NavLink} to="/quote" variant="red" size="md">
+                Start a Quote
+              </Button>
+              <Button as={NavLink} to="/contact" variant="outline" size="md" className="border-paper/30 text-paper hover:bg-paper hover:text-ink">
+                Meet the Team
+              </Button>
             </div>
-          </NavLink>
+          </div>
+        </motion.div>
+
+        <div className="flex flex-col gap-5">
+          {highlights.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="group relative overflow-hidden rounded-[1.8rem] border border-ink/10 bg-paper p-6 md:p-7 shadow-[0_16px_45px_rgba(4,13,17,0.08)]"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} opacity-95`} />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.16),_transparent_42%)]" />
+                <div className="relative z-10 flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-paper/20 bg-paper/15 backdrop-blur-sm">
+                    <Icon size={20} strokeWidth={2} className="text-paper" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display-x font-bold text-lg leading-snug text-paper">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-paper/80">
+                      {item.copy}
+                    </p>
+                  </div>
+                  <ArrowUpRight size={18} strokeWidth={2} className="mt-1 shrink-0 text-paper/80 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </Section>
