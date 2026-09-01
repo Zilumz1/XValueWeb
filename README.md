@@ -16,11 +16,6 @@ npm run build      # production build to /dist
 - All Phase 3 pages routed and stubbed (About, Products, Solar, Brands, Contact,
   Quote, Careers, Store Locator, Terms, Privacy, Warranty) — ready to be filled in
 
-## Design system
-- Colors: Ink #0E1210, Paper #F7F5EF, Volt #D4FF3D, Ember #FF4B1F, Circuit #1B3BFF
-- Type: Archivo Black (display), IBM Plex Sans (body), IBM Plex Mono (data/labels)
-- Signature: full-bleed alternating color panels with a diagonal seam + solar-cell
-  grid texture referencing the product itself without being a literal icon
 
 ## Notes
 - Logo is a type-based wordmark (XVALUE, VALUE in Volt) rather than a recreation
